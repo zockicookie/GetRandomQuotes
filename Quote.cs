@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace GetRandomQuotes
 {
-    class JsonInstance
+    class Quote
     {
-        public string quote;
-        public string author;
-        public string category;
-
-
+        public string QuoteText { get; set; }
+        public string Author { get; set; }
+        public string Category { get; set; }
     }
 }

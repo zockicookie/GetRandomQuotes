@@ -10,9 +10,11 @@ namespace GetRandomQuotes
 {
     class JsonController
     {
-        public JsonInstance DeserializeJson<JsonInstance>(string json)
+        public List<Quote> DeserializeJson<Quote>(string json)
         {
-            return JsonConvert.DeserializeObject<JsonInstance>(json);
+            List<Quote> temp = JsonConvert.DeserializeObject<List<Quote>>(json);
+
+            return temp;
         }
         
 

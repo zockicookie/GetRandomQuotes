@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Newtonsoft.Json;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,9 +23,7 @@ namespace GetRandomQuotes
         private readonly ApiController _apiController;
         private readonly JsonController _jsonController = new JsonController();
 
-        private JsonInstance _jsonInstance = new JsonInstance();    
-
-        private string _responseData;
+        private Quote _quote = new Quote();    
 
         public MainWindow()
         {
@@ -38,6 +37,7 @@ namespace GetRandomQuotes
             try
             {
                 _responseData = await _apiController.GetApiResponseAsync();
+                WindowSetup(_responseData);
             }
             catch (Exception ex)
             {
@@ -45,10 +45,14 @@ namespace GetRandomQuotes
             }
         }
 
-        private void WindowSetup()
+        private void WindowSetup(string _responseData)
         {
-            _jsonInstance = _jsonController.DeserializeJson<JsonInstance>(_responseData);
-            txtMain.Text = $"{_jsonInstance.quote}";
+            List<Quote> quotes = JsonConvert.DeserializeObject<List<Quote>>(_responseData);
+
+            foreach (var quote in quotes)
+            {
+                txtMain.Text = quote.QuoteText;
+            }
         }
 
     }
