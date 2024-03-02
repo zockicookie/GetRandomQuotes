@@ -39,7 +39,6 @@ namespace GetRandomQuotes
             {
                 _responseData = await _apiController.GetApiResponseAsync();
 
-                // Deserialize JSON response into a list of Quote objects
                 var quote = JsonConvert.DeserializeObject<List<Quote>>(_responseData);
 
                 if (quote != null && quote.Count > 0)
@@ -47,7 +46,6 @@ namespace GetRandomQuotes
                     Quote quote1 = new Quote();
                     quote1 = quote[0];
 
-                    // Access the first quote and display its text in the txtMain TextBox
                     txtMain.Text = $"\"{quote1.quote}\"\n\n-{quote1.author}\n\nCategory: {quote1.category}";
                 }
                 else
@@ -60,18 +58,5 @@ namespace GetRandomQuotes
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
-
-        /*
-        private void WindowSetup(string _responseData)
-        {
-            List<Quote> quotes = JsonConvert.DeserializeObject<List<Quote>>(_responseData);
-
-            foreach (var quote in quotes)
-            {
-                txtMain.Text = quote.QuoteText;
-            }
-        }
-        */
-
     }
 }
