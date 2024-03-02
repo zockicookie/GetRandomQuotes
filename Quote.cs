@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace GetRandomQuotes
 {
-    class Quote
+    public class Quote
     {
-        public string QuoteText { get; set; }
-        public string Author { get; set; }
-        public string Category { get; set; }
+        public string quote { get; set; }
+        public string author { get; set; }
+        public string category { get; set; }
     }
 }

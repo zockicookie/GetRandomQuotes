@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetRandomQuotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="331" Width="578">
+
     <Grid>
-        <TextBox x:Name="txtMain" HorizontalAlignment="Left" Height="93" Margin="237,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="278"/>
+
+        <TextBlock x:Name="txtMain" HorizontalAlignment="Center" Height="257" TextWrapping="Wrap" VerticalAlignment="Center" Width="518" FontFamily="Malgun Gothic Semilight" FontSize="20"/>
 
     </Grid>
 </Window>
